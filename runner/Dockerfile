@@ -9,7 +9,7 @@ FROM mcr.microsoft.com/playwright/python:v1.65.2-noble
 RUN sed -i 's|http://azure.archive.ubuntu.com|http://archive.ubuntu.com|g' \
       /etc/apt/sources.list.d/*.sources /etc/apt/sources.list 2>/dev/null || true; \
     apt-get update \
- && apt-get install -y --no-install-recommends xvfb x11vnc novnc websockify python3-venv tini \
+ && apt-get install -y --no-install-recommends xvfb x11vnc novnc websockify python3-venv \
  && rm -rf /var/lib/apt/lists/* \
  && ln -sf vnc.html /usr/share/novnc/index.html
 
@@ -48,7 +48,4 @@ ENV DISPLAY=:99 \
 USER pwuser
 
 EXPOSE 8100 6080
-# tini is PID 1 and reaps Chromium's child processes. It is baked into the image
-# instead of compose `init: true`: Docker's injected docker-init fails to exec
-# together with no-new-privileges on some installs (e.g. snap Docker + AppArmor).
-ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/runner-entrypoint"]
+ENTRYPOINT ["/usr/local/bin/runner-entrypoint"]

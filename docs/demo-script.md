@@ -25,28 +25,28 @@ Use the instructor's supplied page if one is given. Otherwise use the bundled si
 - **Say:** "Locators are verified against the live page. Anything that doesn't match exactly one element is ranked down, and XPath is never suggested."
 - Click **Export JSON**: this is the structured inspection output (sample in `docs/samples/inspection.json`).
 
-## 3. Set a vague goal and get a clarification (≈1 min)
-
-- In **Testing goal**, enter `test this page` and click **Set goal**. Leave the Scope empty and click **Summarize Scope**.
-- The confidence meter is below the threshold, so the assistant **asks** instead of guessing. Point at the reasons: no element named, empty Scope.
-- **Say:** "Confidence is computed by code from observable signals, not from the model's opinion of itself. The workflow stops until I answer or skip."
-- Answer: `I want to check the password rules and the confirm-password field.`
-
-## 4. Select elements (≈30 s)
+## 3. Select elements (≈30 s)
 
 - Tick **Password** and **Confirm password** into the Scope (the colours pair the table rows with the screenshot boxes). Optionally use the filters (type = password) and **Apply to Scope**.
-- Refine the goal: `verify the password length rules and the mismatch case`, then **Set goal**. The goal history keeps the earlier version.
+- **Say:** "The Scope is what the model is allowed to talk about. A summary needs at least one selected Finding."
+
+## 4. Set a vague goal and get a clarification (≈1 min)
+
+- In **Testing goal**, enter `test this page`, click **Set goal**, then **Summarize Scope**.
+- The confidence meter is below the threshold (0.65 against 0.70 in the rehearsal), so the assistant **asks** instead of answering. Point at the signals: there is a goal, a Scope and an action ("test"), but the goal doesn't mention any observed element, so the largest signal (0.35) is missing. In the rehearsal it asked: *"Which of the observed page areas — 'footer', 'form#signup', or 'nav#top' — contains the password fields that need to be tested?"* The page areas it names are real containers from the Inspection.
+- **Say:** "Confidence is computed by code from observable signals, not from the model's opinion of itself. The workflow stops until I answer or skip."
+- Answer: `I want to check the password length rules and the confirm-password field.`
+- Refine the goal to `verify the password length rules and the mismatch case` and click **Set goal**. Confidence goes to 1.0, and the goal history keeps the earlier version.
 
 ## 5. Grounded summary with the usage badge (≈1.5 min)
 
-- Click **Summarize Scope**. The answer arrives in about 4–9 s.
-- Walk through the sections:
-  - **Observed**: facts quoted from the DOM, e.g. both fields have `minlength="10"` and are `required`. Click an evidence link: it highlights that Finding in the table and on the screenshot.
-  - **Inferred meaning**: e.g. passwords shorter than 10 characters should be rejected, labelled as an inference.
-  - **Unverified**: e.g. whether a mismatch message is shown, because the page doesn't reveal it until it's submitted.
-  - **Next step**: a suggested test, still for the tester to decide.
+- Click **Summarize Scope**. The answer arrives in a few seconds (2.8 s in the rehearsal; the p95 is 9 s).
+- Walk through the sections. The wording varies from run to run; the rehearsal gave:
+  - **Observed**: "The password field … has a minimum length of 10 characters, required", citing `f_005`, and the same for Confirm password (`f_006`). Click an evidence link: it highlights that Finding in the table and on the screenshot.
+  - **Unverified**: "no evidence … whether the password length rule is enforced on submission" and "… whether the fields are checked for mismatch". The model says what the page *doesn't* show instead of guessing.
+  - **Inferred meaning** / **Next step**: shown when the model offers them. Inferences are labelled as such, and a next step is only a suggestion.
 - **Say:** "Every claim cites a Finding in my Scope, and quoted values are checked against the stored Inspection. A claim that fails validation is retried with the errors fed back, and if it still fails it's withheld with a notice. It's never shown."
-- Expand the **usage badge**: model, calls, prompt and completion tokens, response time and load time per attempt, and the validation outcome.
+- Expand the **usage badge**: model, calls, prompt and completion tokens, response time and load time per attempt, and the validation outcome. In the rehearsal, the clarification's first attempt failed validation (`failed_retried`) and the retry passed, which shows the retry loop live.
 - Click **Export usage**: the model call records as JSON (sample in `docs/samples/model_calls.json`).
 
 ## Wrap-up (≈30 s)

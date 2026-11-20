@@ -83,4 +83,4 @@ Run the API natively: `RUNNER_HEADLESS=true uv run uvicorn app.api:app --port 81
 `docker compose up --build runner`, then open `http://127.0.0.1:6080/vnc.html?autoconnect=1&resize=scale`
 (the UI can embed that URL). Hardening is in `docker-compose.yml`: non-root,
 `cap_drop: [ALL]`, `no-new-privileges`, read-only root with tmpfs `/tmp`,
-`pids_limit`, `mem_limit`, `shm_size: 1gb`, `tini` as PID 1 (in the image), only the `exchange` volume mounted.
+`pids_limit`, `mem_limit`, `shm_size: 1gb`, `init`, only the `exchange` volume mounted.

@@ -68,6 +68,7 @@ services:
     pids_limit: 512
     mem_limit: 2g
     shm_size: 1gb
+    init: true
     extra_hosts:
       - "host.docker.internal:host-gateway"
     healthcheck:

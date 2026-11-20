@@ -140,6 +140,8 @@ Stored Inspections are the foundation for Phase 2:
 
 **Response-time target (NFR-3):** a validated Scope summary within 15 s at p95 with the model warm. The measured p95 is 9.0 s, so the target leaves some headroom. A cold start adds the load time.
 
+Per-call usage records from a demo session are in `docs/samples/model_calls.json`. They show tokens, response and load time, and the validation outcome, and include one attempt that failed validation and was retried.
+
 ## 8. Isolation and safety
 
 - **Runner isolation.** The Runner runs in a Docker container as a non-root user, with all capabilities dropped, a read-only filesystem and memory and process limits. It sees only a shared volume for exchanging jobs and results with the backend, and none of the host's files. Its API is reachable only from the backend.

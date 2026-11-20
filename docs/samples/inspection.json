@@ -1,0 +1,1037 @@
+{
+  "inspection_id": "ins_01M7XDQ6VD3XQ2W2Y1PZY1WWVX",
+  "session_id": "ses_01M7XDQ6V2YE2DGWTYE12EQ2ZV",
+  "requested_url": "http://host.docker.internal:8088/signup.html",
+  "final_url": "http://host.docker.internal:8088/signup.html",
+  "captured_at": "2026-11-20T21:27:39.249000Z",
+  "status": "complete",
+  "reason": null,
+  "screenshot": "inspections/ins_01M7XDQ6VD3XQ2W2Y1PZY1WWVX/screenshot.png",
+  "counts": {
+    "total": 13,
+    "visible": 13,
+    "hidden": 0,
+    "inaccessible": 0
+  },
+  "browser_ms": 1194,
+  "findings": [
+    {
+      "finding_id": "f_001",
+      "tag": "a",
+      "type": null,
+      "role": "link",
+      "accessible_name": "Home",
+      "label": null,
+      "visible_text": "Home",
+      "attributes": {},
+      "visibility": "visible",
+      "bbox": {
+        "x": 8.0,
+        "y": 8.0,
+        "width": 39.1,
+        "height": 17.0
+      },
+      "container": "nav#top",
+      "fingerprint": {
+        "role": "link",
+        "accessible_name": "Home",
+        "tag": "a",
+        "type": null,
+        "container": "nav#top",
+        "id": null,
+        "name": null,
+        "data_testid": null,
+        "label": null
+      },
+      "locators": [
+        {
+          "strategy": "role",
+          "args": {
+            "role": "link",
+            "name": "Home",
+            "exact": true
+          },
+          "expr": "page.get_by_role(\"link\", name=\"Home\", exact=True)",
+          "match_count": 1,
+          "rank": 1,
+          "reliability": "High"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "a[href=\"/\"]"
+          },
+          "expr": "page.locator('a[href=\"/\"]')",
+          "match_count": 1,
+          "rank": 2,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "text",
+          "args": {
+            "text": "Home",
+            "exact": true
+          },
+          "expr": "page.get_by_text(\"Home\", exact=True)",
+          "match_count": 1,
+          "rank": 3,
+          "reliability": "Medium"
+        }
+      ],
+      "dom_snippet": "<a href=\"/\">Home</a>",
+      "crop": "inspections/ins_01M7XDQ6VD3XQ2W2Y1PZY1WWVX/crops/f_001.png"
+    },
+    {
+      "finding_id": "f_002",
+      "tag": "a",
+      "type": null,
+      "role": "link",
+      "accessible_name": "Sign in",
+      "label": null,
+      "visible_text": "Sign in",
+      "attributes": {},
+      "visibility": "visible",
+      "bbox": {
+        "x": 47.1,
+        "y": 8.0,
+        "width": 45.8,
+        "height": 17.0
+      },
+      "container": "nav#top",
+      "fingerprint": {
+        "role": "link",
+        "accessible_name": "Sign in",
+        "tag": "a",
+        "type": null,
+        "container": "nav#top",
+        "id": null,
+        "name": null,
+        "data_testid": null,
+        "label": null
+      },
+      "locators": [
+        {
+          "strategy": "role",
+          "args": {
+            "role": "link",
+            "name": "Sign in",
+            "exact": true
+          },
+          "expr": "page.get_by_role(\"link\", name=\"Sign in\", exact=True)",
+          "match_count": 1,
+          "rank": 1,
+          "reliability": "High"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "a[href=\"/login\"]"
+          },
+          "expr": "page.locator('a[href=\"/login\"]')",
+          "match_count": 1,
+          "rank": 2,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "text",
+          "args": {
+            "text": "Sign in",
+            "exact": true
+          },
+          "expr": "page.get_by_text(\"Sign in\", exact=True)",
+          "match_count": 1,
+          "rank": 3,
+          "reliability": "Medium"
+        }
+      ],
+      "dom_snippet": "<a href=\"/login\">Sign in</a>",
+      "crop": "inspections/ins_01M7XDQ6VD3XQ2W2Y1PZY1WWVX/crops/f_002.png"
+    },
+    {
+      "finding_id": "f_003",
+      "tag": "input",
+      "type": "text",
+      "role": "textbox",
+      "accessible_name": "Full name",
+      "label": "Full name",
+      "visible_text": null,
+      "attributes": {
+        "id": "full-name",
+        "name": "full_name",
+        "type": "text",
+        "required": "",
+        "maxlength": "80"
+      },
+      "visibility": "visible",
+      "bbox": {
+        "x": 76.4,
+        "y": 105.9,
+        "width": 185.0,
+        "height": 21.0
+      },
+      "container": "form#signup",
+      "fingerprint": {
+        "role": "textbox",
+        "accessible_name": "Full name",
+        "tag": "input",
+        "type": "text",
+        "container": "form#signup",
+        "id": "full-name",
+        "name": "full_name",
+        "data_testid": null,
+        "label": "Full name"
+      },
+      "locators": [
+        {
+          "strategy": "role",
+          "args": {
+            "role": "textbox",
+            "name": "Full name",
+            "exact": true
+          },
+          "expr": "page.get_by_role(\"textbox\", name=\"Full name\", exact=True)",
+          "match_count": 1,
+          "rank": 1,
+          "reliability": "High"
+        },
+        {
+          "strategy": "label",
+          "args": {
+            "text": "Full name",
+            "exact": true
+          },
+          "expr": "page.get_by_label(\"Full name\", exact=True)",
+          "match_count": 1,
+          "rank": 2,
+          "reliability": "High"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "#full-name"
+          },
+          "expr": "page.locator(\"#full-name\")",
+          "match_count": 1,
+          "rank": 3,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[name=\"full_name\"]"
+          },
+          "expr": "page.locator('input[name=\"full_name\"]')",
+          "match_count": 1,
+          "rank": 4,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[type=\"text\"]"
+          },
+          "expr": "page.locator('input[type=\"text\"]')",
+          "match_count": 1,
+          "rank": 5,
+          "reliability": "Medium"
+        }
+      ],
+      "dom_snippet": "<input id=\"full-name\" name=\"full_name\" type=\"text\" required=\"\" maxlength=\"80\">",
+      "crop": "inspections/ins_01M7XDQ6VD3XQ2W2Y1PZY1WWVX/crops/f_003.png"
+    },
+    {
+      "finding_id": "f_004",
+      "tag": "input",
+      "type": "email",
+      "role": "textbox",
+      "accessible_name": "Email",
+      "label": "Email",
+      "visible_text": null,
+      "attributes": {
+        "id": "su-email",
+        "name": "email",
+        "type": "email",
+        "placeholder": "name@example.com",
+        "required": ""
+      },
+      "visibility": "visible",
+      "bbox": {
+        "x": 307.7,
+        "y": 105.9,
+        "width": 185.0,
+        "height": 21.0
+      },
+      "container": "form#signup",
+      "fingerprint": {
+        "role": "textbox",
+        "accessible_name": "Email",
+        "tag": "input",
+        "type": "email",
+        "container": "form#signup",
+        "id": "su-email",
+        "name": "email",
+        "data_testid": null,
+        "label": "Email"
+      },
+      "locators": [
+        {
+          "strategy": "role",
+          "args": {
+            "role": "textbox",
+            "name": "Email",
+            "exact": true
+          },
+          "expr": "page.get_by_role(\"textbox\", name=\"Email\", exact=True)",
+          "match_count": 1,
+          "rank": 1,
+          "reliability": "High"
+        },
+        {
+          "strategy": "label",
+          "args": {
+            "text": "Email",
+            "exact": true
+          },
+          "expr": "page.get_by_label(\"Email\", exact=True)",
+          "match_count": 1,
+          "rank": 2,
+          "reliability": "High"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "#su-email"
+          },
+          "expr": "page.locator(\"#su-email\")",
+          "match_count": 1,
+          "rank": 3,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[name=\"email\"]"
+          },
+          "expr": "page.locator('input[name=\"email\"]')",
+          "match_count": 1,
+          "rank": 4,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[placeholder=\"name@example.com\"]"
+          },
+          "expr": "page.locator('input[placeholder=\"name@example.com\"]')",
+          "match_count": 1,
+          "rank": 5,
+          "reliability": "Medium"
+        }
+      ],
+      "dom_snippet": "<input id=\"su-email\" name=\"email\" type=\"email\" placeholder=\"name@example.com\" required=\"\">",
+      "crop": "inspections/ins_01M7XDQ6VD3XQ2W2Y1PZY1WWVX/crops/f_004.png"
+    },
+    {
+      "finding_id": "f_005",
+      "tag": "input",
+      "type": "password",
+      "role": null,
+      "accessible_name": "Password",
+      "label": "Password",
+      "visible_text": null,
+      "attributes": {
+        "id": "su-password",
+        "name": "password",
+        "type": "password",
+        "minlength": "10",
+        "required": "",
+        "aria-describedby": "pw-hint"
+      },
+      "visibility": "visible",
+      "bbox": {
+        "x": 562.0,
+        "y": 105.9,
+        "width": 185.0,
+        "height": 21.0
+      },
+      "container": "form#signup",
+      "fingerprint": {
+        "role": null,
+        "accessible_name": "Password",
+        "tag": "input",
+        "type": "password",
+        "container": "form#signup",
+        "id": "su-password",
+        "name": "password",
+        "data_testid": null,
+        "label": "Password"
+      },
+      "locators": [
+        {
+          "strategy": "label",
+          "args": {
+            "text": "Password",
+            "exact": true
+          },
+          "expr": "page.get_by_label(\"Password\", exact=True)",
+          "match_count": 1,
+          "rank": 1,
+          "reliability": "High"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "#su-password"
+          },
+          "expr": "page.locator(\"#su-password\")",
+          "match_count": 1,
+          "rank": 2,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[name=\"password\"]"
+          },
+          "expr": "page.locator('input[name=\"password\"]')",
+          "match_count": 1,
+          "rank": 3,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[type=\"password\"]"
+          },
+          "expr": "page.locator('input[type=\"password\"]')",
+          "match_count": 2,
+          "rank": 4,
+          "reliability": "Low"
+        }
+      ],
+      "dom_snippet": "<input id=\"su-password\" name=\"password\" type=\"password\" minlength=\"10\" required=\"\" aria-describedby=\"pw-hint\">",
+      "crop": "inspections/ins_01M7XDQ6VD3XQ2W2Y1PZY1WWVX/crops/f_005.png"
+    },
+    {
+      "finding_id": "f_006",
+      "tag": "input",
+      "type": "password",
+      "role": null,
+      "accessible_name": "Confirm password",
+      "label": "Confirm password",
+      "visible_text": null,
+      "attributes": {
+        "id": "su-confirm",
+        "name": "password_confirm",
+        "type": "password",
+        "minlength": "10",
+        "required": ""
+      },
+      "visibility": "visible",
+      "bbox": {
+        "x": 130.7,
+        "y": 177.9,
+        "width": 185.0,
+        "height": 21.0
+      },
+      "container": "form#signup",
+      "fingerprint": {
+        "role": null,
+        "accessible_name": "Confirm password",
+        "tag": "input",
+        "type": "password",
+        "container": "form#signup",
+        "id": "su-confirm",
+        "name": "password_confirm",
+        "data_testid": null,
+        "label": "Confirm password"
+      },
+      "locators": [
+        {
+          "strategy": "label",
+          "args": {
+            "text": "Confirm password",
+            "exact": true
+          },
+          "expr": "page.get_by_label(\"Confirm password\", exact=True)",
+          "match_count": 1,
+          "rank": 1,
+          "reliability": "High"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "#su-confirm"
+          },
+          "expr": "page.locator(\"#su-confirm\")",
+          "match_count": 1,
+          "rank": 2,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[name=\"password_confirm\"]"
+          },
+          "expr": "page.locator('input[name=\"password_confirm\"]')",
+          "match_count": 1,
+          "rank": 3,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[type=\"password\"]"
+          },
+          "expr": "page.locator('input[type=\"password\"]')",
+          "match_count": 2,
+          "rank": 4,
+          "reliability": "Low"
+        }
+      ],
+      "dom_snippet": "<input id=\"su-confirm\" name=\"password_confirm\" type=\"password\" minlength=\"10\" required=\"\">",
+      "crop": "inspections/ins_01M7XDQ6VD3XQ2W2Y1PZY1WWVX/crops/f_006.png"
+    },
+    {
+      "finding_id": "f_007",
+      "tag": "select",
+      "type": null,
+      "role": "combobox",
+      "accessible_name": "Country",
+      "label": "Country",
+      "visible_text": null,
+      "attributes": {
+        "id": "country",
+        "name": "country",
+        "required": ""
+      },
+      "visibility": "visible",
+      "bbox": {
+        "x": 376.1,
+        "y": 178.9,
+        "width": 82.0,
+        "height": 19.0
+      },
+      "container": "form#signup",
+      "fingerprint": {
+        "role": "combobox",
+        "accessible_name": "Country",
+        "tag": "select",
+        "type": null,
+        "container": "form#signup",
+        "id": "country",
+        "name": "country",
+        "data_testid": null,
+        "label": "Country"
+      },
+      "locators": [
+        {
+          "strategy": "role",
+          "args": {
+            "role": "combobox",
+            "name": "Country",
+            "exact": true
+          },
+          "expr": "page.get_by_role(\"combobox\", name=\"Country\", exact=True)",
+          "match_count": 1,
+          "rank": 1,
+          "reliability": "High"
+        },
+        {
+          "strategy": "label",
+          "args": {
+            "text": "Country",
+            "exact": true
+          },
+          "expr": "page.get_by_label(\"Country\", exact=True)",
+          "match_count": 1,
+          "rank": 2,
+          "reliability": "High"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "#country"
+          },
+          "expr": "page.locator(\"#country\")",
+          "match_count": 1,
+          "rank": 3,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "select[name=\"country\"]"
+          },
+          "expr": "page.locator('select[name=\"country\"]')",
+          "match_count": 1,
+          "rank": 4,
+          "reliability": "Medium"
+        }
+      ],
+      "dom_snippet": "<select id=\"country\" name=\"country\" required=\"\">\n      <option value=\"\">Choose\u2026</option><option value=\"eg\">Egypt</option><option value=\"de\">Germany</option>\n    </select>",
+      "crop": "inspections/ins_01M7XDQ6VD3XQ2W2Y1PZY1WWVX/crops/f_007.png"
+    },
+    {
+      "finding_id": "f_008",
+      "tag": "input",
+      "type": "date",
+      "role": null,
+      "accessible_name": "Date of birth",
+      "label": "Date of birth",
+      "visible_text": null,
+      "attributes": {
+        "id": "birth",
+        "name": "birth_date",
+        "type": "date"
+      },
+      "visibility": "visible",
+      "bbox": {
+        "x": 547.9,
+        "y": 176.9,
+        "width": 108.3,
+        "height": 24.0
+      },
+      "container": "form#signup",
+      "fingerprint": {
+        "role": null,
+        "accessible_name": "Date of birth",
+        "tag": "input",
+        "type": "date",
+        "container": "form#signup",
+        "id": "birth",
+        "name": "birth_date",
+        "data_testid": null,
+        "label": "Date of birth"
+      },
+      "locators": [
+        {
+          "strategy": "label",
+          "args": {
+            "text": "Date of birth",
+            "exact": true
+          },
+          "expr": "page.get_by_label(\"Date of birth\", exact=True)",
+          "match_count": 1,
+          "rank": 1,
+          "reliability": "High"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "#birth"
+          },
+          "expr": "page.locator(\"#birth\")",
+          "match_count": 1,
+          "rank": 2,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[name=\"birth_date\"]"
+          },
+          "expr": "page.locator('input[name=\"birth_date\"]')",
+          "match_count": 1,
+          "rank": 3,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[type=\"date\"]"
+          },
+          "expr": "page.locator('input[type=\"date\"]')",
+          "match_count": 1,
+          "rank": 4,
+          "reliability": "Medium"
+        }
+      ],
+      "dom_snippet": "<input id=\"birth\" name=\"birth_date\" type=\"date\">",
+      "crop": "inspections/ins_01M7XDQ6VD3XQ2W2Y1PZY1WWVX/crops/f_008.png"
+    },
+    {
+      "finding_id": "f_009",
+      "tag": "input",
+      "type": "checkbox",
+      "role": "checkbox",
+      "accessible_name": "I accept the terms",
+      "label": "I accept the terms",
+      "visible_text": null,
+      "attributes": {
+        "type": "checkbox",
+        "name": "terms",
+        "required": ""
+      },
+      "visibility": "visible",
+      "bbox": {
+        "x": 664.2,
+        "y": 179.9,
+        "width": 13.0,
+        "height": 13.0
+      },
+      "container": "form#signup",
+      "fingerprint": {
+        "role": "checkbox",
+        "accessible_name": "I accept the terms",
+        "tag": "input",
+        "type": "checkbox",
+        "container": "form#signup",
+        "id": null,
+        "name": "terms",
+        "data_testid": null,
+        "label": "I accept the terms"
+      },
+      "locators": [
+        {
+          "strategy": "role",
+          "args": {
+            "role": "checkbox",
+            "name": "I accept the terms",
+            "exact": true
+          },
+          "expr": "page.get_by_role(\"checkbox\", name=\"I accept the terms\", exact=True)",
+          "match_count": 1,
+          "rank": 1,
+          "reliability": "High"
+        },
+        {
+          "strategy": "label",
+          "args": {
+            "text": "I accept the terms",
+            "exact": true
+          },
+          "expr": "page.get_by_label(\"I accept the terms\", exact=True)",
+          "match_count": 1,
+          "rank": 2,
+          "reliability": "High"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[name=\"terms\"]"
+          },
+          "expr": "page.locator('input[name=\"terms\"]')",
+          "match_count": 1,
+          "rank": 3,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[type=\"checkbox\"]"
+          },
+          "expr": "page.locator('input[type=\"checkbox\"]')",
+          "match_count": 1,
+          "rank": 4,
+          "reliability": "Medium"
+        }
+      ],
+      "dom_snippet": "<input type=\"checkbox\" name=\"terms\" required=\"\">",
+      "crop": "inspections/ins_01M7XDQ6VD3XQ2W2Y1PZY1WWVX/crops/f_009.png"
+    },
+    {
+      "finding_id": "f_010",
+      "tag": "input",
+      "type": "radio",
+      "role": "radio",
+      "accessible_name": "Free",
+      "label": "Free",
+      "visible_text": null,
+      "attributes": {
+        "type": "radio",
+        "name": "plan"
+      },
+      "visibility": "visible",
+      "bbox": {
+        "x": 806.5,
+        "y": 179.9,
+        "width": 13.0,
+        "height": 13.0
+      },
+      "container": "form#signup",
+      "fingerprint": {
+        "role": "radio",
+        "accessible_name": "Free",
+        "tag": "input",
+        "type": "radio",
+        "container": "form#signup",
+        "id": null,
+        "name": "plan",
+        "data_testid": null,
+        "label": "Free"
+      },
+      "locators": [
+        {
+          "strategy": "role",
+          "args": {
+            "role": "radio",
+            "name": "Free",
+            "exact": true
+          },
+          "expr": "page.get_by_role(\"radio\", name=\"Free\", exact=True)",
+          "match_count": 1,
+          "rank": 1,
+          "reliability": "High"
+        },
+        {
+          "strategy": "label",
+          "args": {
+            "text": "Free",
+            "exact": true
+          },
+          "expr": "page.get_by_label(\"Free\", exact=True)",
+          "match_count": 1,
+          "rank": 2,
+          "reliability": "High"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[name=\"plan\"]"
+          },
+          "expr": "page.locator('input[name=\"plan\"]')",
+          "match_count": 2,
+          "rank": 3,
+          "reliability": "Low"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[type=\"radio\"]"
+          },
+          "expr": "page.locator('input[type=\"radio\"]')",
+          "match_count": 2,
+          "rank": 4,
+          "reliability": "Low"
+        }
+      ],
+      "dom_snippet": "<input type=\"radio\" name=\"plan\" value=\"free\" checked=\"\">",
+      "crop": "inspections/ins_01M7XDQ6VD3XQ2W2Y1PZY1WWVX/crops/f_010.png"
+    },
+    {
+      "finding_id": "f_011",
+      "tag": "input",
+      "type": "radio",
+      "role": "radio",
+      "accessible_name": "Pro",
+      "label": "Pro",
+      "visible_text": null,
+      "attributes": {
+        "type": "radio",
+        "name": "plan"
+      },
+      "visibility": "visible",
+      "bbox": {
+        "x": 863.9,
+        "y": 179.9,
+        "width": 13.0,
+        "height": 13.0
+      },
+      "container": "form#signup",
+      "fingerprint": {
+        "role": "radio",
+        "accessible_name": "Pro",
+        "tag": "input",
+        "type": "radio",
+        "container": "form#signup",
+        "id": null,
+        "name": "plan",
+        "data_testid": null,
+        "label": "Pro"
+      },
+      "locators": [
+        {
+          "strategy": "role",
+          "args": {
+            "role": "radio",
+            "name": "Pro",
+            "exact": true
+          },
+          "expr": "page.get_by_role(\"radio\", name=\"Pro\", exact=True)",
+          "match_count": 1,
+          "rank": 1,
+          "reliability": "High"
+        },
+        {
+          "strategy": "label",
+          "args": {
+            "text": "Pro",
+            "exact": true
+          },
+          "expr": "page.get_by_label(\"Pro\", exact=True)",
+          "match_count": 1,
+          "rank": 2,
+          "reliability": "High"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[name=\"plan\"]"
+          },
+          "expr": "page.locator('input[name=\"plan\"]')",
+          "match_count": 2,
+          "rank": 3,
+          "reliability": "Low"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "input[type=\"radio\"]"
+          },
+          "expr": "page.locator('input[type=\"radio\"]')",
+          "match_count": 2,
+          "rank": 4,
+          "reliability": "Low"
+        }
+      ],
+      "dom_snippet": "<input type=\"radio\" name=\"plan\" value=\"pro\">",
+      "crop": "inspections/ins_01M7XDQ6VD3XQ2W2Y1PZY1WWVX/crops/f_011.png"
+    },
+    {
+      "finding_id": "f_012",
+      "tag": "button",
+      "type": "submit",
+      "role": "button",
+      "accessible_name": "Create account",
+      "label": null,
+      "visible_text": "Create account",
+      "attributes": {
+        "type": "submit",
+        "data-testid": "signup-submit"
+      },
+      "visibility": "visible",
+      "bbox": {
+        "x": 910.1,
+        "y": 177.9,
+        "width": 106.4,
+        "height": 21.0
+      },
+      "container": "form#signup",
+      "fingerprint": {
+        "role": "button",
+        "accessible_name": "Create account",
+        "tag": "button",
+        "type": "submit",
+        "container": "form#signup",
+        "id": null,
+        "name": null,
+        "data_testid": "signup-submit",
+        "label": null
+      },
+      "locators": [
+        {
+          "strategy": "role",
+          "args": {
+            "role": "button",
+            "name": "Create account",
+            "exact": true
+          },
+          "expr": "page.get_by_role(\"button\", name=\"Create account\", exact=True)",
+          "match_count": 1,
+          "rank": 1,
+          "reliability": "High"
+        },
+        {
+          "strategy": "test_id",
+          "args": {
+            "test_id": "signup-submit"
+          },
+          "expr": "page.get_by_test_id(\"signup-submit\")",
+          "match_count": 1,
+          "rank": 2,
+          "reliability": "High"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "button[type=\"submit\"]"
+          },
+          "expr": "page.locator('button[type=\"submit\"]')",
+          "match_count": 1,
+          "rank": 3,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "text",
+          "args": {
+            "text": "Create account",
+            "exact": true
+          },
+          "expr": "page.get_by_text(\"Create account\", exact=True)",
+          "match_count": 1,
+          "rank": 4,
+          "reliability": "Medium"
+        }
+      ],
+      "dom_snippet": "<button type=\"submit\" data-testid=\"signup-submit\">Create account</button>",
+      "crop": "inspections/ins_01M7XDQ6VD3XQ2W2Y1PZY1WWVX/crops/f_012.png"
+    },
+    {
+      "finding_id": "f_013",
+      "tag": "a",
+      "type": null,
+      "role": "link",
+      "accessible_name": "Privacy",
+      "label": null,
+      "visible_text": "Privacy",
+      "attributes": {},
+      "visibility": "visible",
+      "bbox": {
+        "x": 8.0,
+        "y": 200.9,
+        "width": 48.9,
+        "height": 17.0
+      },
+      "container": "footer",
+      "fingerprint": {
+        "role": "link",
+        "accessible_name": "Privacy",
+        "tag": "a",
+        "type": null,
+        "container": "footer",
+        "id": null,
+        "name": null,
+        "data_testid": null,
+        "label": null
+      },
+      "locators": [
+        {
+          "strategy": "role",
+          "args": {
+            "role": "link",
+            "name": "Privacy",
+            "exact": true
+          },
+          "expr": "page.get_by_role(\"link\", name=\"Privacy\", exact=True)",
+          "match_count": 1,
+          "rank": 1,
+          "reliability": "High"
+        },
+        {
+          "strategy": "css",
+          "args": {
+            "selector": "a[href=\"/privacy\"]"
+          },
+          "expr": "page.locator('a[href=\"/privacy\"]')",
+          "match_count": 1,
+          "rank": 2,
+          "reliability": "Medium"
+        },
+        {
+          "strategy": "text",
+          "args": {
+            "text": "Privacy",
+            "exact": true
+          },
+          "expr": "page.get_by_text(\"Privacy\", exact=True)",
+          "match_count": 1,
+          "rank": 3,
+          "reliability": "Medium"
+        }
+      ],
+      "dom_snippet": "<a href=\"/privacy\">Privacy</a>",
+      "crop": "inspections/ins_01M7XDQ6VD3XQ2W2Y1PZY1WWVX/crops/f_013.png"
+    }
+  ]
+}

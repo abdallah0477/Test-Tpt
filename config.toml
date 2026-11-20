@@ -1,0 +1,59 @@
+# Defaults for every tunable. Environment variables override them
+# (see backend/app/utils/config.py). Secrets never go here: use .env.
+
+[storage]
+data_dir = "data"            # relative to this file; env DATA_DIR overrides
+
+[logging]
+level = "INFO"               # env LOG_LEVEL
+
+[ollama]
+base_url = "http://host.docker.internal:11434"   # env OLLAMA_BASE_URL
+keep_alive = "30m"           # keep the model loaded between calls
+request_timeout_ms = 300000  # one /api/chat call
+hardware = "RTX 3060 Laptop 6GB"  # shown in usage records' `setup` with the Ollama version
+warmup = true                # health-check + warm-up at backend start (never blocks startup)
+
+[runner]
+url = "http://runner:8100"   # env RUNNER_URL
+job_timeout_ms = 120000
+
+[inspection]
+load_timeout_ms = 30000
+
+[assistant]
+max_retries = 2
+
+[clarification]
+threshold = 0.7
+
+[matching]                   # Phase 2 rescan matching (AD-11)
+margin = 0.1
+threshold = 0.6
+
+[execution]                  # Phase 2
+test_timeout_ms = 60000
+
+[models.assistant]
+provider = "ollama"
+model = "qwen3:4b-instruct-2507-q4_K_M"
+think = false
+num_ctx = 8192
+temperature = 0.2
+num_predict = 1536           # max output tokens; also reserved from num_ctx by the prompt budget
+
+[models.codegen]
+provider = "ollama"
+model = "qwen3:4b-instruct-2507-q4_K_M"
+think = false
+num_ctx = 8192
+temperature = 0.2
+num_predict = 1536           # max output tokens; also reserved from num_ctx by the prompt budget
+
+[cloud]                      # free-tier fallback, off by default (AD-8)
+enabled = false              # env CLOUD_ENABLED
+provider = "groq"
+model = ""
+base_url = "https://api.groq.com/openai/v1"  # OpenAI-compatible endpoint; key GROQ_API_KEY from .env
+rpm_limit = 30
+tpm_limit = 6000

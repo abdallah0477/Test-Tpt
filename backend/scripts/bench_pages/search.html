@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Product search</title></head>
+<body>
+<header>
+  <nav id="main-nav"><a href="/">Shop</a><a href="/cart" data-testid="cart-link">Cart (0)</a></nav>
+  <form role="search" id="site-search" action="/search">
+    <input type="search" name="q" aria-label="Search products" placeholder="Search…" minlength="2">
+    <button type="submit">Search</button>
+  </form>
+</header>
+<main>
+  <aside>
+    <form id="filters">
+      <fieldset><legend>Category</legend>
+        <label><input type="checkbox" name="cat" value="books"> Books</label>
+        <label><input type="checkbox" name="cat" value="music"> Music</label>
+      </fieldset>
+      <label for="max-price">Max price</label>
+      <input id="max-price" name="max_price" type="number" min="0" max="1000" step="5">
+      <label for="sort">Sort by</label>
+      <select id="sort" name="sort"><option>Relevance</option><option>Price: low to high</option></select>
+      <button type="button" id="apply-filters">Apply filters</button>
+      <button type="reset" disabled>Reset</button>
+    </form>
+  </aside>
+  <section id="results">
+    <h2>Results</h2>
+    <article><a href="/p/1">The Pragmatic Programmer</a> <button aria-label="Add The Pragmatic Programmer to cart">Add</button></article>
+    <article><a href="/p/2">Clean Code</a> <button aria-label="Add Clean Code to cart">Add</button></article>
+    <nav aria-label="Pagination"><a href="?page=2">Next page</a></nav>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Fixture login</title>
+<style>body{margin:0;font:16px sans-serif} .offscreen{position:absolute;left:-9999px}</style></head>
+<body>
+<header>
+  <nav id="primary">
+    <a href="/">Home</a>
+    <a href="/about" data-testid="nav-about">About us</a>
+    <a class="offscreen" href="#main">Skip to content</a>
+  </nav>
+</header>
+<main>
+  <h1>Sign in</h1>
+  <form id="login" action="/session" method="post">
+    <label for="email">Email address</label>
+    <input id="email" name="email" type="email" placeholder="you@example.com" required>
+    <label>Password <input id="password" name="password" type="password" minlength="8" maxlength="64" required></label>
+    <input type="hidden" name="csrf" value="abc123">
+    <label><input type="checkbox" name="remember"> Remember me</label>
+    <button type="submit" data-testid="login-submit">Sign In</button>
+    <button type="reset" disabled>Clear</button>
+  </form>
+  <form name="newsletter">
+    <input name="topic" aria-label="Topic" pattern="[a-z]+">
+    <button type="button" class="sub">Submit</button>
+    <button type="button" class="sub" data-testid="newsletter-submit-2">Submit</button>
+  </form>
+  <div role="tablist">
+    <div role="tab" aria-selected="true" id="tab-a">Overview</div>
+  </div>
+  <div role="button" aria-label="Help" tabindex="0">?</div>
+  <a href="/forgot">Forgot password?</a>
+</main>
+<footer><a href="/terms">Terms</a></footer>
+</body>
+</html>

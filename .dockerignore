@@ -1,0 +1,14 @@
+.git
+.claude
+_bmad
+_bmad-output
+data
+docs
+frontend
+runner
+**/.venv
+**/__pycache__
+**/.pytest_cache
+**/.ruff_cache
+**/node_modules
+.env

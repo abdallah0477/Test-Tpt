@@ -1,0 +1,42 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "FastAPI backend for the Human-in-the-Loop Web Testing Assistant"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "contracts",
+    "fastapi==0.165.0",
+    "pydantic==2.14.4",
+    "uvicorn==0.54.0",
+    "sse-starlette==3.7.0",
+    "httpx==0.28.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.2.0",
+    "ruff==0.17.6",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+contracts = { path = "../contracts", editable = true }
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "../contracts/tests"]
+pythonpath = ["."]
+# httpx is pinned by the spine; starlette's TestClient warns about it
+filterwarnings = ["ignore:Using `httpx` with `starlette.testclient`"]
+markers = ["ollama: live test against a local Ollama (run with RUN_OLLAMA_TESTS=1)"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.ruff.lint.isort]
+known-third-party = ["contracts"]

@@ -1,0 +1,575 @@
+{
+  "run_at": "2026-11-20T20:50:39Z",
+  "host": {
+    "gpu": "RTX 3060 Laptop 6GB",
+    "cpu": "i7-11800H",
+    "ram_gb": 14,
+    "os": "Linux-7.0.0-43-generic-x86_64-with-glibc2.43"
+  },
+  "ollama_version": "0.40.16",
+  "num_ctx": 8192,
+  "num_predict": 1536,
+  "temperature": 0.2,
+  "max_retries": 2,
+  "inspections": {
+    "login": 16,
+    "signup": 13,
+    "search": 15
+  },
+  "cases": [
+    {
+      "name": "login_invalid_email",
+      "page": "login",
+      "goal": "test login with an invalid email"
+    },
+    {
+      "name": "login_password_rules",
+      "page": "login",
+      "goal": "verify the password length rules"
+    },
+    {
+      "name": "login_remember_submit",
+      "page": "login",
+      "goal": "check the Remember me checkbox and the Sign In button"
+    },
+    {
+      "name": "login_newsletter",
+      "page": "login",
+      "goal": "test the newsletter topic field and its submit buttons"
+    },
+    {
+      "name": "login_nav_links",
+      "page": "login",
+      "goal": "check the navigation links in the header"
+    },
+    {
+      "name": "login_vague",
+      "page": "login",
+      "goal": "test this page"
+    },
+    {
+      "name": "signup_mismatch",
+      "page": "signup",
+      "goal": "test signup with mismatched passwords"
+    },
+    {
+      "name": "signup_required",
+      "page": "signup",
+      "goal": "verify the required fields on the signup form"
+    },
+    {
+      "name": "signup_choices",
+      "page": "signup",
+      "goal": "check the country dropdown and the plan radio buttons"
+    },
+    {
+      "name": "signup_birth_date",
+      "page": "signup",
+      "goal": "test the date of birth field"
+    },
+    {
+      "name": "signup_vague",
+      "page": "signup",
+      "goal": "test everything"
+    },
+    {
+      "name": "search_query",
+      "page": "search",
+      "goal": "test searching for products with a short query"
+    },
+    {
+      "name": "search_price_filter",
+      "page": "search",
+      "goal": "verify the max price filter limits"
+    },
+    {
+      "name": "search_add_to_cart",
+      "page": "search",
+      "goal": "check adding results to the cart"
+    },
+    {
+      "name": "search_missing_checkout",
+      "page": "search",
+      "goal": "test the checkout button"
+    },
+    {
+      "name": "search_vague",
+      "page": "search",
+      "goal": "test it"
+    }
+  ],
+  "models": [
+    {
+      "model": "qwen3:4b-instruct-2507-q4_K_M",
+      "previously_loaded": [
+        "qwen3:4b-instruct-2507-q4_K_M"
+      ],
+      "cold_load_ms": 4027,
+      "baseline_vram_mib": 32,
+      "peak_vram_mib": 3893,
+      "cases": 16,
+      "errors": 0,
+      "first_attempt_json_valid_rate": 1.0,
+      "grounding_pass_rate": 1.0,
+      "mean_retries": 0.1,
+      "mean_response_ms_per_call": 3919.3,
+      "p95_response_ms_per_call": 9024,
+      "mean_answer_ms": 4164.2,
+      "p95_answer_ms": 9024,
+      "generation_tokens_per_s": 66.5,
+      "end_to_end_tokens_per_s": 60.7,
+      "rows": [
+        {
+          "case": "login_invalid_email",
+          "page": "login",
+          "goal": "test login with an invalid email",
+          "kind": "summary",
+          "confidence": 1.0,
+          "scope_size": 5,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 0,
+          "blocked_count": 0,
+          "calls": 1,
+          "response_ms_per_call": [
+            4373
+          ],
+          "answer_ms": 4373,
+          "wall_ms": 4391,
+          "prompt_tokens": 805,
+          "completion_tokens": 314,
+          "eval_ms": 4015,
+          "items": {
+            "observed": 5,
+            "inferred": 0,
+            "unverified": 2,
+            "next_step": 0
+          },
+          "sample": "An email input field with accessible name 'Email address' and placeholder 'you@example.com' is present in the login form."
+        },
+        {
+          "case": "login_password_rules",
+          "page": "login",
+          "goal": "verify the password length rules",
+          "kind": "summary",
+          "confidence": 1.0,
+          "scope_size": 1,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 0,
+          "blocked_count": 0,
+          "calls": 1,
+          "response_ms_per_call": [
+            2248
+          ],
+          "answer_ms": 2248,
+          "wall_ms": 2265,
+          "prompt_tokens": 399,
+          "completion_tokens": 164,
+          "eval_ms": 2109,
+          "items": {
+            "observed": 1,
+            "inferred": 0,
+            "unverified": 2,
+            "next_step": 0
+          },
+          "sample": "The password input field has a minlength attribute set to '8' and a maxlength attribute set to '64'."
+        },
+        {
+          "case": "login_remember_submit",
+          "page": "login",
+          "goal": "check the Remember me checkbox and the Sign In button",
+          "kind": "summary",
+          "confidence": 1.0,
+          "scope_size": 6,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 0,
+          "blocked_count": 0,
+          "calls": 1,
+          "response_ms_per_call": [
+            2838
+          ],
+          "answer_ms": 2838,
+          "wall_ms": 2855,
+          "prompt_tokens": 878,
+          "completion_tokens": 193,
+          "eval_ms": 2579,
+          "items": {
+            "observed": 2,
+            "inferred": 0,
+            "unverified": 2,
+            "next_step": 0
+          },
+          "sample": "The 'Remember me' checkbox is visible and accessible with the label 'Remember me'."
+        },
+        {
+          "case": "login_newsletter",
+          "page": "login",
+          "goal": "test the newsletter topic field and its submit buttons",
+          "kind": "summary",
+          "confidence": 1.0,
+          "scope_size": 3,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 0,
+          "blocked_count": 0,
+          "calls": 1,
+          "response_ms_per_call": [
+            4386
+          ],
+          "answer_ms": 4386,
+          "wall_ms": 4407,
+          "prompt_tokens": 600,
+          "completion_tokens": 323,
+          "eval_ms": 4189,
+          "items": {
+            "observed": 3,
+            "inferred": 0,
+            "unverified": 2,
+            "next_step": 0
+          },
+          "sample": "A textbox with accessible name 'Topic' and attribute 'name' set to 'topic', located within a form named 'newsletter'. It has an aria-label 'Topic' and a pattern '[a-z]+'."
+        },
+        {
+          "case": "login_nav_links",
+          "page": "login",
+          "goal": "check the navigation links in the header",
+          "kind": "summary",
+          "confidence": 1.0,
+          "scope_size": 3,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 0,
+          "blocked_count": 0,
+          "calls": 1,
+          "response_ms_per_call": [
+            2000
+          ],
+          "answer_ms": 2000,
+          "wall_ms": 2028,
+          "prompt_tokens": 566,
+          "completion_tokens": 132,
+          "eval_ms": 1795,
+          "items": {
+            "observed": 3,
+            "inferred": 0,
+            "unverified": 1,
+            "next_step": 0
+          },
+          "sample": "Home"
+        },
+        {
+          "case": "login_vague",
+          "page": "login",
+          "goal": "test this page",
+          "kind": "clarification",
+          "confidence": 0.65,
+          "scope_size": 14,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 1,
+          "blocked_count": 0,
+          "calls": 2,
+          "response_ms_per_call": [
+            3081,
+            2360
+          ],
+          "answer_ms": 5441,
+          "wall_ms": 5491,
+          "prompt_tokens": 3883,
+          "completion_tokens": 348,
+          "eval_ms": 4729,
+          "items": {
+            "observed": 0,
+            "inferred": 0,
+            "unverified": 0,
+            "next_step": 1
+          },
+          "sample": "Which of the observed page areas should be tested: 'footer', 'form#login', 'form[name=newsletter]', 'main', 'nav#primary'?"
+        },
+        {
+          "case": "signup_mismatch",
+          "page": "signup",
+          "goal": "test signup with mismatched passwords",
+          "kind": "summary",
+          "confidence": 1.0,
+          "scope_size": 10,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 0,
+          "blocked_count": 0,
+          "calls": 1,
+          "response_ms_per_call": [
+            5782
+          ],
+          "answer_ms": 5782,
+          "wall_ms": 5799,
+          "prompt_tokens": 1317,
+          "completion_tokens": 389,
+          "eval_ms": 5220,
+          "items": {
+            "observed": 10,
+            "inferred": 0,
+            "unverified": 2,
+            "next_step": 0
+          },
+          "sample": "Full name input field with accessible name 'Full name' and label 'Full name'"
+        },
+        {
+          "case": "signup_required",
+          "page": "signup",
+          "goal": "verify the required fields on the signup form",
+          "kind": "summary",
+          "confidence": 1.0,
+          "scope_size": 10,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 0,
+          "blocked_count": 0,
+          "calls": 1,
+          "response_ms_per_call": [
+            9024
+          ],
+          "answer_ms": 9024,
+          "wall_ms": 9052,
+          "prompt_tokens": 1319,
+          "completion_tokens": 596,
+          "eval_ms": 8964,
+          "items": {
+            "observed": 10,
+            "inferred": 0,
+            "unverified": 1,
+            "next_step": 0
+          },
+          "sample": "The 'Full name' field is a text input with accessible name 'Full name' and label 'Full name'."
+        },
+        {
+          "case": "signup_choices",
+          "page": "signup",
+          "goal": "check the country dropdown and the plan radio buttons",
+          "kind": "summary",
+          "confidence": 1.0,
+          "scope_size": 3,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 0,
+          "blocked_count": 0,
+          "calls": 1,
+          "response_ms_per_call": [
+            4737
+          ],
+          "answer_ms": 4737,
+          "wall_ms": 4764,
+          "prompt_tokens": 584,
+          "completion_tokens": 280,
+          "eval_ms": 4467,
+          "items": {
+            "observed": 3,
+            "inferred": 0,
+            "unverified": 2,
+            "next_step": 0
+          },
+          "sample": "A combobox with accessible name 'Country' and label 'Country' is present in the form with id 'country' and name 'country', and is required."
+        },
+        {
+          "case": "signup_birth_date",
+          "page": "signup",
+          "goal": "test the date of birth field",
+          "kind": "summary",
+          "confidence": 1.0,
+          "scope_size": 1,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 0,
+          "blocked_count": 0,
+          "calls": 1,
+          "response_ms_per_call": [
+            2540
+          ],
+          "answer_ms": 2540,
+          "wall_ms": 2562,
+          "prompt_tokens": 395,
+          "completion_tokens": 153,
+          "eval_ms": 2411,
+          "items": {
+            "observed": 1,
+            "inferred": 0,
+            "unverified": 2,
+            "next_step": 0
+          },
+          "sample": "The date of birth field is present in the signup form and is accessible with the label 'Date of birth'."
+        },
+        {
+          "case": "signup_vague",
+          "page": "signup",
+          "goal": "test everything",
+          "kind": "clarification",
+          "confidence": 0.65,
+          "scope_size": 13,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 0,
+          "blocked_count": 0,
+          "calls": 1,
+          "response_ms_per_call": [
+            4054
+          ],
+          "answer_ms": 4054,
+          "wall_ms": 4074,
+          "prompt_tokens": 1611,
+          "completion_tokens": 201,
+          "eval_ms": 3261,
+          "items": {
+            "observed": 0,
+            "inferred": 0,
+            "unverified": 0,
+            "next_step": 1
+          },
+          "sample": "Which specific element or area in the page should be tested when the goal is 'test everything'? The goal is broad and includes all elements, but to ensure alignment, could you clarify whether the testing scope should include all elements across the entire page (e.g., nav, form, footer) or focus on a specific section such as the signup form only?"
+        },
+        {
+          "case": "search_query",
+          "page": "search",
+          "goal": "test searching for products with a short query",
+          "kind": "summary",
+          "confidence": 1.0,
+          "scope_size": 2,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 0,
+          "blocked_count": 0,
+          "calls": 1,
+          "response_ms_per_call": [
+            3443
+          ],
+          "answer_ms": 3443,
+          "wall_ms": 3475,
+          "prompt_tokens": 507,
+          "completion_tokens": 196,
+          "eval_ms": 3185,
+          "items": {
+            "observed": 2,
+            "inferred": 0,
+            "unverified": 1,
+            "next_step": 0
+          },
+          "sample": "A search input field with accessible name 'Search products' is visible and has a placeholder 'Search…'. It is part of a form with ID 'site-search' and accepts queries of at least 2 characters."
+        },
+        {
+          "case": "search_price_filter",
+          "page": "search",
+          "goal": "verify the max price filter limits",
+          "kind": "summary",
+          "confidence": 1.0,
+          "scope_size": 6,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 0,
+          "blocked_count": 0,
+          "calls": 1,
+          "response_ms_per_call": [
+            5944
+          ],
+          "answer_ms": 5944,
+          "wall_ms": 5984,
+          "prompt_tokens": 884,
+          "completion_tokens": 345,
+          "eval_ms": 5577,
+          "items": {
+            "observed": 6,
+            "inferred": 0,
+            "unverified": 2,
+            "next_step": 0
+          },
+          "sample": "A checkbox with accessible name 'Books' and label 'Books' is present in the form with id 'filters'."
+        },
+        {
+          "case": "search_add_to_cart",
+          "page": "search",
+          "goal": "check adding results to the cart",
+          "kind": "summary",
+          "confidence": 1.0,
+          "scope_size": 2,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 0,
+          "blocked_count": 0,
+          "calls": 1,
+          "response_ms_per_call": [
+            3308
+          ],
+          "answer_ms": 3308,
+          "wall_ms": 3343,
+          "prompt_tokens": 485,
+          "completion_tokens": 176,
+          "eval_ms": 3047,
+          "items": {
+            "observed": 2,
+            "inferred": 0,
+            "unverified": 1,
+            "next_step": 0
+          },
+          "sample": "A button with visible text 'Add' and accessible name 'Add The Pragmatic Programmer to cart' is present in the main container."
+        },
+        {
+          "case": "search_missing_checkout",
+          "page": "search",
+          "goal": "test the checkout button",
+          "kind": "clarification",
+          "confidence": 0.35,
+          "scope_size": 15,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 0,
+          "blocked_count": 0,
+          "calls": 1,
+          "response_ms_per_call": [
+            4990
+          ],
+          "answer_ms": 4990,
+          "wall_ms": 5039,
+          "prompt_tokens": 1790,
+          "completion_tokens": 204,
+          "eval_ms": 4086,
+          "items": {
+            "observed": 1,
+            "inferred": 0,
+            "unverified": 0,
+            "next_step": 1
+          },
+          "sample": "No element matching \"checkout button\" was observed in this Inspection."
+        },
+        {
+          "case": "search_vague",
+          "page": "search",
+          "goal": "test it",
+          "kind": "clarification",
+          "confidence": 0.65,
+          "scope_size": 15,
+          "first_attempt_json_valid": true,
+          "outcome": "passed",
+          "retries": 0,
+          "blocked_count": 0,
+          "calls": 1,
+          "response_ms_per_call": [
+            1520
+          ],
+          "answer_ms": 1520,
+          "wall_ms": 1540,
+          "prompt_tokens": 1785,
+          "completion_tokens": 67,
+          "eval_ms": 1387,
+          "items": {
+            "observed": 0,
+            "inferred": 0,
+            "unverified": 0,
+            "next_step": 1
+          },
+          "sample": "What specific action or functionality should be tested regarding the navigation or filtering elements in the page, such as the 'Shop' link, 'Cart (0)' link, search functionality, or filter options like 'Books' or 'Music'?"
+        }
+      ]
+    }
+  ],
+  "nfr3_proposal": "a validated Scope summary within 15 s at p95 with the default model on this laptop, model warm (measured p95 9.0 s per answer incl. retries; +25% headroom). Cold start adds the load time."
+}

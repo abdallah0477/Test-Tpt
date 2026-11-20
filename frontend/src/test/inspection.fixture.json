@@ -1,0 +1,121 @@
+{
+  "inspection_id": "ins_fixture01",
+  "session_id": "ses_fixture01",
+  "requested_url": "http://127.0.0.1:8081/login",
+  "final_url": "http://127.0.0.1:8081/login",
+  "captured_at": "2026-11-20T10:00:00Z",
+  "status": "complete",
+  "reason": null,
+  "screenshot": "sessions/ses_fixture01/inspections/ins_fixture01/screenshot.png",
+  "counts": { "total": 3, "visible": 2, "hidden": 1, "inaccessible": 0 },
+  "browser_ms": 812,
+  "findings": [
+    {
+      "finding_id": "f_001",
+      "tag": "input",
+      "type": "email",
+      "role": "textbox",
+      "accessible_name": "Email",
+      "label": "Email",
+      "visible_text": null,
+      "attributes": { "id": "email", "name": "email", "type": "email", "required": "", "maxlength": "64" },
+      "visibility": "visible",
+      "bbox": { "x": 100, "y": 50, "width": 200, "height": 30 },
+      "container": "form#login",
+      "fingerprint": {
+        "role": "textbox",
+        "accessible_name": "Email",
+        "tag": "input",
+        "type": "email",
+        "container": "form#login",
+        "id": "email",
+        "name": "email",
+        "data_testid": null,
+        "label": "Email"
+      },
+      "locators": [
+        {
+          "strategy": "css",
+          "args": { "selector": "input.field" },
+          "expr": "page.locator(\"input.field\")",
+          "match_count": 2,
+          "rank": 2,
+          "reliability": "Low"
+        },
+        {
+          "strategy": "label",
+          "args": { "text": "Email" },
+          "expr": "page.get_by_label(\"Email\")",
+          "match_count": 1,
+          "rank": 1,
+          "reliability": "High"
+        }
+      ],
+      "dom_snippet": "<input id=\"email\" name=\"email\" type=\"email\" required maxlength=\"64\">",
+      "crop": "sessions/ses_fixture01/inspections/ins_fixture01/crops/f_001.png"
+    },
+    {
+      "finding_id": "f_002",
+      "tag": "button",
+      "type": "submit",
+      "role": "button",
+      "accessible_name": "Sign in",
+      "label": null,
+      "visible_text": "Sign in",
+      "attributes": { "type": "submit" },
+      "visibility": "visible",
+      "bbox": { "x": 100, "y": 120, "width": 80, "height": 32 },
+      "container": "form#login",
+      "fingerprint": {
+        "role": "button",
+        "accessible_name": "Sign in",
+        "tag": "button",
+        "type": "submit",
+        "container": "form#login",
+        "id": null,
+        "name": null,
+        "data_testid": null,
+        "label": null
+      },
+      "locators": [
+        {
+          "strategy": "role",
+          "args": { "role": "button", "name": "Sign in" },
+          "expr": "page.get_by_role(\"button\", name=\"Sign in\")",
+          "match_count": 1,
+          "rank": 1,
+          "reliability": "High"
+        }
+      ],
+      "dom_snippet": "<button type=\"submit\">Sign in</button>",
+      "crop": null
+    },
+    {
+      "finding_id": "f_003",
+      "tag": "a",
+      "type": null,
+      "role": "link",
+      "accessible_name": "Forgot password?",
+      "label": null,
+      "visible_text": "Forgot password?",
+      "attributes": { "href": "/forgot", "hidden": "" },
+      "visibility": "hidden",
+      "bbox": null,
+      "container": null,
+      "fingerprint": {
+        "role": "link",
+        "accessible_name": "Forgot password?",
+        "tag": "a",
+        "type": null,
+        "container": null,
+        "id": null,
+        "name": null,
+        "data_testid": null,
+        "label": null
+      },
+      "locators": [],
+      "dom_snippet": "<a href=\"/forgot\" hidden>Forgot password?</a>",
+      "crop": null
+    }
+  ]
+}

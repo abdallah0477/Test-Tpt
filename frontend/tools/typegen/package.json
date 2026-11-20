@@ -1,0 +1,10 @@
+{
+  "name": "typegen",
+  "private": true,
+  "description": "Isolated tool scope: openapi-typescript needs the TypeScript 5.x JS API, the app uses TypeScript 7 (AD-14).",
+  "type": "module",
+  "dependencies": {
+    "openapi-typescript": "7.13.0",
+    "typescript": "5.9.3"
+  }
+}

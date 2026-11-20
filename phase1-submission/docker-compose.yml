@@ -1,0 +1,88 @@
+# One command: docker compose up --build
+# Ports bind to 127.0.0.1 only. Ollama runs natively on the host (AD-21).
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "127.0.0.1:8000:8000"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      CONFIG_PATH: /app/config.toml
+      DATA_DIR: /app/data
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      RUNNER_URL: ${RUNNER_URL:-http://runner:8100}
+      EXCHANGE_DIR: /exchange
+    # write data/ as the host user so files stay editable outside the container
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    volumes:
+      - ./data:/app/data
+      - ./config.toml:/app/config.toml:ro
+      - exchange:/exchange
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "127.0.0.1:5173:5173"
+    environment:
+      BACKEND_URL: http://backend:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  # Isolated, hardened Playwright container (Story 1.2, AD-19). Its API (:8100)
+  # is only on the internal compose network; only noVNC is published.
+  runner:
+    build:
+      context: .
+      dockerfile: runner/Dockerfile
+    # same uid/gid as the backend so both can manage the shared exchange files
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    environment:
+      EXCHANGE_DIR: /exchange
+      RUNNER_HEADLESS: "false"
+      JOB_TIMEOUT_MS: "120000"
+      HOME: /tmp/home
+    ports:
+      - "127.0.0.1:6080:6080"   # noVNC browser view
+    expose:
+      - "8100"                  # Runner API, internal network only
+    volumes:
+      - exchange:/exchange      # the only mount: no host paths, no docker.sock
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:size=512m,mode=1777
+    pids_limit: 512
+    mem_limit: 2g
+    shm_size: 1gb
+    init: true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8100/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  # Backend <-> Runner exchange (AD-19): out/{job_id}/result.json + DONE.
+  # Kept in memory (tmpfs) and open to both containers' user; the backend
+  # imports results into data/ and cleans up, so nothing here needs to persist.
+  exchange:
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
+      o: "size=1g,mode=1777"

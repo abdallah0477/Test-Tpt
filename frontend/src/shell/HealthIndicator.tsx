@@ -1,10 +1,11 @@
 import { useHealth } from '../api/health'
+import { Icon } from './Icon'
 import { DOT, modelStatusText, type State } from './modelStatus'
 
 function Item({ state, text, title }: { state: State; text: string; title?: string }) {
   return (
     <span className={`health health-${state}`} title={title}>
-      <span aria-hidden="true">{DOT[state]}</span> {text}
+      <Icon name={DOT[state]} /> {text}
     </span>
   )
 }

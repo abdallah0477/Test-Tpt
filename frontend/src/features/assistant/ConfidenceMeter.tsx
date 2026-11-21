@@ -1,4 +1,5 @@
 import type { ConfidenceReport } from '../../api/types'
+import { Icon } from '../../shell/Icon'
 import { confidenceText } from './assistantText'
 
 /** Score vs threshold as a meter plus text (never colour alone), with the signals it came from. */
@@ -7,7 +8,7 @@ export function ConfidenceMeter({ report }: { report: ConfidenceReport | undefin
   const s = report.signals
   const signal = (ok: boolean, text: string) => (
     <li>
-      <span aria-hidden="true">{ok ? '✓' : '✕'}</span> {text}: {ok ? 'yes' : 'no'}
+      <Icon name={ok ? 'check' : 'cross'} /> {text}: {ok ? 'yes' : 'no'}
     </li>
   )
   return (

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { LocatorCandidate } from '../../api/types'
+import { Icon } from '../../shell/Icon'
 import { rankLocators, uniquenessLabel } from './findingText'
 
 async function copyText(text: string): Promise<boolean> {
@@ -33,7 +34,7 @@ function LocatorRow({ locator, best }: { locator: LocatorCandidate; best?: boole
         <span className="badge">{locator.strategy}</span>
         <span className={`badge rel-${locator.reliability}`}>Reliability: {locator.reliability}</span>
         <span className={`badge ${uniqueness.unique ? 'match-unique' : 'match-warn'}`}>
-          {uniqueness.unique ? '' : '⚠ '}
+          {uniqueness.unique ? null : <Icon name="alert" />}
           {uniqueness.text}
         </span>
         <CopyButton text={locator.expr} label={`locator ${locator.expr}`} />

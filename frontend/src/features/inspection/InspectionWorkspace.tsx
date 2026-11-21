@@ -9,6 +9,7 @@ import { assignScopeColors } from '../session/scopeColors'
 import { onlyRecorded, removeId, scopeBelongsElsewhere, scopeIdsFor, toggleId } from '../session/scopeOps'
 import { ScopePanel } from '../session/ScopePanel'
 import type { SessionEditing } from '../session/useSessionEditing'
+import { Icon } from '../../shell/Icon'
 import { FindingDetail } from './FindingDetail'
 import { FindingsTable } from './FindingsTable'
 import { ScreenshotView } from './ScreenshotView'
@@ -47,21 +48,32 @@ export function InspectionWorkspace({ inspection, busy, onRetry, onReinspect, ed
     <FindingLinks.Provider value={{ inspectionId, findings, openFinding: setActiveId }}>
       <section className="area-main" aria-label="Inspection results">
         <div className="inspection-head">
-          <div>
-            <p className="inspection-url">
-              <strong>{inspection.requested_url}</strong>
-              {inspection.final_url && inspection.final_url !== inspection.requested_url && <> → {inspection.final_url}</>}
-            </p>
-            <p className="muted">
-              {inspectionId} · captured {new Date(inspection.captured_at).toLocaleString()}
-            </p>
+          <div className="inspection-id">
+            <p className="inspection-url">{inspection.requested_url}</p>
+            {inspection.final_url && inspection.final_url !== inspection.requested_url && (
+              <p className="inspection-redirect">Redirected to {inspection.final_url}</p>
+            )}
+            <dl className="inspection-meta">
+              <div>
+                <dt>Inspection</dt>
+                <dd>{inspectionId}</dd>
+              </div>
+              <div>
+                <dt>Captured</dt>
+                <dd>{new Date(inspection.captured_at).toLocaleString()}</dd>
+              </div>
+              <div>
+                <dt>Elements</dt>
+                <dd>{findings.length}</dd>
+              </div>
+            </dl>
           </div>
           <div className="toolbar">
             <button type="button" className="btn" onClick={onReinspect} disabled={busy}>
-              Re-inspect
+              <Icon name="refresh" /> Re-inspect
             </button>
             <a className="btn" href={inspectionUrls.export(inspectionId)} download>
-              Export JSON
+              <Icon name="download" /> Export JSON
             </a>
           </div>
         </div>

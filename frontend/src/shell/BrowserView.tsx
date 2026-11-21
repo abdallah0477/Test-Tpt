@@ -1,3 +1,4 @@
+import { Icon } from './Icon'
 import { useEffect, useState } from 'react'
 
 // noVNC view of the Runner's visible browser. Override with VITE_NOVNC_URL in frontend/.env.local.
@@ -69,8 +70,8 @@ export function BrowserView() {
         {reach === 'down' ? (
           <span className="muted">Live browser view is available when the Runner runs in Docker (noVNC on 127.0.0.1:6080).</span>
         ) : (
-          <a className="muted" href={NOVNC_URL} target="_blank" rel="noreferrer">
-            Open in new tab
+          <a className="browser-view-link" href={NOVNC_URL} target="_blank" rel="noreferrer">
+            Open in new tab <Icon name="external" />
           </a>
         )}
       </div>

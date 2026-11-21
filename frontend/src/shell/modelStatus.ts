@@ -2,7 +2,9 @@ import type { ModelStatus } from '../api/types'
 
 export type State = 'ok' | 'checking' | 'warn' | 'down'
 
-export const DOT: Record<State, string> = { ok: '●', checking: '○', warn: '◐', down: '✕' }
+import type { IconName } from './Icon'
+
+export const DOT: Record<State, IconName> = { ok: 'dot', checking: 'ring', warn: 'partial', down: 'cross' }
 
 /** Model status as text: reachable / warming up / not reachable (never colour alone). */
 export function modelStatusText(model: ModelStatus): { state: State; text: string } {

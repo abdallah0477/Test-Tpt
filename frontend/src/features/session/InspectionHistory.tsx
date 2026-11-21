@@ -19,7 +19,7 @@ export function InspectionHistory({ sessionId, activeId, onOpen }: InspectionHis
       {sessionId === null ? (
         <p className="muted">No session yet. Start an inspection to create one.</p>
       ) : history.isPending ? (
-        <p className="muted">Loading…</p>
+        <p className="muted">Loading...</p>
       ) : history.isError ? (
         <p className="field-error">Could not load history: {errorMessage(history.error)}</p>
       ) : history.data.length === 0 ? (
@@ -36,9 +36,10 @@ export function InspectionHistory({ sessionId, activeId, onOpen }: InspectionHis
               >
                 <span className="history-url">{item.requested_url}</span>
                 <span className="history-meta">
-                  <span className={`badge st-${item.status}`}>{item.status.replace('_', ' ')}</span>{' '}
-                  {item.counts.total} elements · {new Date(item.captured_at).toLocaleTimeString()}
-                  {item.inspection_id === activeId && ' · shown'}
+                  <span className={`badge st-${item.status}`}>{item.status.replace('_', ' ')}</span>
+                  <span>{item.counts.total} elements</span>
+                  <span>{new Date(item.captured_at).toLocaleTimeString()}</span>
+                  {item.inspection_id === activeId && <span className="history-shown">Shown</span>}
                 </span>
               </button>
             </li>

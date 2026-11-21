@@ -2,6 +2,7 @@ import { useAssistantResponse } from '../../api/assistant'
 import { errorMessage } from '../../api/client'
 import type { AssistantResponse, ModelCallRecord, ResponseUsage } from '../../api/types'
 import { useSessionUsage } from '../../api/usage'
+import { Icon } from '../../shell/Icon'
 import { UsageBadge } from '../usage/UsageBadge'
 import { MODE_LABEL, validationText } from './assistantText'
 import { ResponseSectionsView } from './ResponseSections'
@@ -22,7 +23,7 @@ export function ResponseView({ response, label, usage, records = [] }: ResponseV
         <h3>{label ?? MODE_LABEL[response.mode]}</h3>
       </header>
       <p className={`validation validation-${response.validation.outcome}`}>
-        <span aria-hidden="true">{response.validation.outcome === 'blocked' ? '⚠' : '✓'}</span> {validationText(response)}
+        <Icon name={response.validation.outcome === 'blocked' ? 'alert' : 'check'} /> {validationText(response)}
       </p>
       {response.withheld_notice && (
         <p className="withheld" role="note">

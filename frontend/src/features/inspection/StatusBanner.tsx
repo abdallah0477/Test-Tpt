@@ -1,4 +1,5 @@
 import type { Inspection, InspectionStatus } from '../../api/types'
+import { Icon, type IconName } from '../../shell/Icon'
 
 interface StatusBannerProps {
   inspection: Inspection
@@ -8,12 +9,12 @@ interface StatusBannerProps {
 }
 
 // Each status has its own title and symbol, so it never relies on colour alone.
-const TITLES: Record<InspectionStatus, { symbol: string; title: string }> = {
-  complete: { symbol: '✓', title: 'Inspection complete' },
-  partial: { symbol: '◐', title: 'Partial inspection' },
-  unreachable: { symbol: '✕', title: 'Page unreachable' },
-  timeout: { symbol: '⏱', title: 'Page load timed out' },
-  login_required: { symbol: '🔒', title: 'Login required' },
+const TITLES: Record<InspectionStatus, { symbol: IconName; title: string }> = {
+  complete: { symbol: 'check', title: 'Inspection complete' },
+  partial: { symbol: 'partial', title: 'Partial inspection' },
+  unreachable: { symbol: 'cross', title: 'Page unreachable' },
+  timeout: { symbol: 'clock', title: 'Page load timed out' },
+  login_required: { symbol: 'lock', title: 'Login required' },
 }
 
 function Body({ inspection }: { inspection: Inspection }) {
@@ -83,7 +84,7 @@ export function StatusBanner({ inspection, busy, onRetry, onReinspect }: StatusB
       data-status={inspection.status}
     >
       <h2 className="banner-title">
-        <span aria-hidden="true">{symbol}</span> {title}
+        <Icon name={symbol} /> {title}
       </h2>
       <Body inspection={inspection} />
       {failed && (
